@@ -9,7 +9,7 @@ class Main15 {
     drawdemo.executeCommand("move t1 100 50");
     drawdemo.executeCommand("create rectangle 400 300 600 400 r1");
 
-    // drawdemo.executeCommand("clear");
+    drawdemo.executeCommand("clear");
 
   }
 }
