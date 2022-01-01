@@ -1,6 +1,6 @@
 package oop.ex24;
 
-public class RandomGenerator implements Iterator {
+public class RandomGenerator implements Iterator, Initializable {
   protected int current;
   public RandomGenerator(int seed) {
     current = seed;

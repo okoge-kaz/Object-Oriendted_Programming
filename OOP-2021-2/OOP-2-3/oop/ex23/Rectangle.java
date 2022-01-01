@@ -2,15 +2,15 @@ package oop.ex23;
 
 public class Rectangle extends Figure {
   protected double width;
-  protected double hight;
+  protected double height;
 
-  public Rectangle (double width, double hight) {
+  public Rectangle (double width, double height) {
     this.width = width;
-    this.hight = hight;
+    this.height = height;
   }
 
   @Override
   public double getArea() {
-    return this.hight * this.width;
+    return this.height * this.width;
   }
 }

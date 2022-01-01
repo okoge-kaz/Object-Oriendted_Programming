@@ -1,7 +1,7 @@
 package oop.ex22;
 
 public class Ticket {
-  public static int MAX_NUM = 10;
+  public static final int MAX_NUM = 10;
   private static boolean[] used = new boolean[MAX_NUM];
   private int number;
   public Ticket(int number) {

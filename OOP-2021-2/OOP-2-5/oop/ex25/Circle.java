@@ -1,7 +1,7 @@
 package oop.ex25;
 
 public class Circle extends Figure {
-  private int r;
+  protected int r;
   public Circle (int x, int y, int r) {
     this.x = x;
     this.y = y;

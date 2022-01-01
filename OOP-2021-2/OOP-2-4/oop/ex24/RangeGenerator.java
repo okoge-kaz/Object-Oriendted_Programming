@@ -1,6 +1,6 @@
 package oop.ex24;
 
-public class RangeGenerator implements Iterator {
+public class RangeGenerator implements Iterator, Initializable {
   int current;
   final int lower, upper;
   public RangeGenerator(int initial, int lower, int upper) {
