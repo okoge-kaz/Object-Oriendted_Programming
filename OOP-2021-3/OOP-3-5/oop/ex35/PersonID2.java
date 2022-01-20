@@ -2,8 +2,10 @@ package oop.ex35;
 
 public class PersonID2 {
   final protected int year, serial;
+  final private int code;
   public PersonID2(int year, int serial) {
     this.year = year; this.serial = serial;
+    code = serial * 100 + year;
   }
   @Override
   public String toString() {
@@ -11,7 +13,7 @@ public class PersonID2 {
   }
   @Override
   public int hashCode() {
-    return serial * 100 + year;
+    return code;
   }
   @Override
   public boolean equals(Object obj) {
