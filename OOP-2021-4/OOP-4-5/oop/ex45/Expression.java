@@ -4,6 +4,9 @@ abstract public class Expression implements Element{
   abstract public void parse(Context con);
   abstract public String toString();
   abstract public Value evaluate();
+  public int calcSteps() {
+    return this.calcSteps();
+  }
 
   public static Expression getExpression(Context con) {
     String cur = con.currentToken();

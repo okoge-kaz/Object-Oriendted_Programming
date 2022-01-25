@@ -1,6 +1,6 @@
 package oop.ex45;
 
-/*
+
 public class EvaluateVisitor implements Visitor {
   private Value v;
 
@@ -8,4 +8,4 @@ public class EvaluateVisitor implements Visitor {
     e.accept(this);
     return v;
   }
-}*/
+}

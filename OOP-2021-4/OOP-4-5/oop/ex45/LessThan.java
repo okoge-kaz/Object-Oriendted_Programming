@@ -26,4 +26,11 @@ public class LessThan extends BinaryOperator {
   public Value evaluate() {
     return new Bool(getLeftExpression().evaluate().getNumber() < getRightExpression().evaluate().getNumber());
   }
+
+  @Override
+  public int calcSteps() {
+    int left = (super.getLeftExpression()).calcSteps();
+    int right = (super.getRightExpression()).calcSteps();
+    return left + right + 1;
+  }
 }

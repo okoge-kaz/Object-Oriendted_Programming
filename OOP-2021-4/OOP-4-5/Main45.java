@@ -15,12 +15,12 @@ class Main45 {
       System.out.println("\t" + exp + " is calculated within " + new StepVisitor().calc(exp) + " steps");
     }
 
-    /*
+    
     System.out.println("Check by calcSteps method");
     for(Expression exp : es) {
       System.out.println("\t" + exp + " is calculated within " + exp.calcSteps() + " steps");
     }
-    */
+    
     System.out.println();
 
     System.out.println("Evaluation");
@@ -33,7 +33,7 @@ class Main45 {
       }
     }
 
-    /*
+    
     System.out.println("Evaluate by EvaluateVisitor");
     for(Expression exp : es) {
       try {
@@ -42,6 +42,6 @@ class Main45 {
         System.out.println("\t" + exp + " cannot be evaluated");
       }
     }
-    */
+    
   }
 }

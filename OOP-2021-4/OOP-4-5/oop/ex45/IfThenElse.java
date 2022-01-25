@@ -42,4 +42,12 @@ public class IfThenElse extends Expression {
     }
     return elseexp.evaluate();
   }
+
+  @Override
+  public int calcSteps() {
+    int cond = this.cond.calcSteps();
+    int stepThen = this.thenexp.calcSteps();
+    int stepElse = this.elseexp.calcSteps();
+    return cond + Math.max(stepElse, stepThen) + 1;
+  }
 }
