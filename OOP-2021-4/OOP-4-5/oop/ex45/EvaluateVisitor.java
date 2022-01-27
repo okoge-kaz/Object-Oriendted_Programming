@@ -11,7 +11,7 @@ public class EvaluateVisitor implements Visitor {
 
   @Override
   public void visit(Number e){
-    this.v = new Number(e.getValue());
+    this.v = new Number(e.getNumber());
   }
 
   @Override
@@ -21,16 +21,16 @@ public class EvaluateVisitor implements Visitor {
 
   @Override
   public void visit(Addition e){
-    this.v = new Number(e.getLeftExpression().evaluate().getNumber() + e.getRightExpression().evaluate().getNumber());
+    this.v = new Number(this.evaluate(e.getLeftExpression()).getNumber() + this.evaluate(e.getRightExpression()).getNumber());
   }
 
   @Override
   public void visit(LessThan e){
-    this.v = new Bool(e.getLeftExpression().evaluate().getNumber() < e.getRightExpression().evaluate().getNumber());
+    this.v = new Bool(this.evaluate(e.getLeftExpression()).getNumber() < this.evaluate(e.getRightExpression()).getNumber());
   }
 
   @Override
   public void visit(IfThenElse e){
-    this.v = e.getConditional().evaluate().getBool() ? e.getThenPart().evaluate() : e.getElsePart().evaluate();
+    this.v = (this.evaluate(e.getConditional()).getBool()) ? this.evaluate(e.getThenPart()) : this.evaluate(e.getElsePart());
   }
 }
