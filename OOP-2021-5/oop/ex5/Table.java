@@ -149,4 +149,28 @@ public class Table {
       e.printStackTrace();
     }
   }
+
+  public void join(Table table1, String columnName1, Table table2, String columnName2) {
+    final int SIZE_table1 = table1.tableData.size();
+    final int SIZE_table2 = table2.tableData.size();
+
+    for (int index_table1 = 0; index_table1 < SIZE_table1; index_table1++) {
+      String table1Value = table1.tableData.get(index_table1).get(columnName1);
+      for (int index_table2 = 0; index_table2 < SIZE_table2; index_table2++) {
+        if (table1Value.equals(table2.tableData.get(index_table2).get(columnName2))) {
+          // Tbl1[i][col1] == Tbl2[j][col2] -> add
+          HashMap<String, String> tmp = new HashMap<String, String>();
+          for (int index = 0; index < table1.columnNames.size(); index++) {
+            tmp.put(table1.columnNames.get(index),
+                table1.tableData.get(index_table1).get(table1.columnNames.get(index)));
+          }
+          for (int index = 0; index < table2.columnNames.size(); index++) {
+            tmp.put(table2.columnNames.get(index),
+                table2.tableData.get(index_table2).get(table2.columnNames.get(index)));
+          }
+          this.tableData.add(tmp);
+        }
+      }
+    }
+  }
 }

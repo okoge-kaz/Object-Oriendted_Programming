@@ -105,7 +105,7 @@ public class Database {
         Table table1 = this.DB.get(joinTargetTableName1);
         Table table2 = this.DB.get(joinTargetTableName2);
 
-        this.DB.get(joinTargetTableName3);
+        this.DB.get(joinTargetTableName3).join(table1, joinTargetColumnName1, table2, joinTargetColumnName2);
         break;
       case "load":
         String loadPath = objects.get(0);
