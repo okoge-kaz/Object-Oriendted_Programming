@@ -106,10 +106,10 @@ public class Table {
     for (int id = 0; id < Objects.tableData.size(); id++) {
 
       HashMap<String, String> tmp = new HashMap<String, String>();
-      for (int index = 0; index < Objects.columnNames.size(); index++) {
+      for (int index = 0; index < this.columnNames.size(); index++) {
         // key が一致するかどうか
-        if (this.columnNames.contains(Objects.columnNames.get(index))) {
-          tmp.put(Objects.columnNames.get(index), Objects.tableData.get(id).get(Objects.columnNames.get(index)));
+        if (Objects.columnNames.contains(this.columnNames.get(index))) {
+          tmp.put(this.columnNames.get(index), Objects.tableData.get(id).get(this.columnNames.get(index)));
         } else {
           System.err.println("key does not match to the target object.");
           System.exit(1);
