@@ -1,11 +1,12 @@
 package oop.ex5;
+
 import java.util.ArrayList;
 
 public class CreateTable {
   private final String tableName;
   private ArrayList<String> columnNames;
 
-  public CreateTable(ArrayList<String> data){
+  public CreateTable(ArrayList<String> data) {
     this.tableName = data.get(0);
     this.columnNames = new ArrayList<String>(data.subList(1, data.size()));
   }

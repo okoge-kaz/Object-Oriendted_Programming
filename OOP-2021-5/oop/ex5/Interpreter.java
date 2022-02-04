@@ -1,7 +1,7 @@
 package oop.ex5;
 
-import java.util.Arrays;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Interpreter {
   private String order;
@@ -14,9 +14,9 @@ public class Interpreter {
     final int SIZE = commandList.size();// get size
 
     this.order = commandList.get(0);
-    for(int index=1;index<SIZE;index++){
+    for (int index = 1; index < SIZE; index++) {
       objects.add(commandList.get(index));
-    }// slice [1:]と同様の操作
+    } // slice [1:]と同様の操作
   }
 
   public String getOrder() {

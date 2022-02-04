@@ -1,14 +1,15 @@
 package oop.ex5;
-import java.util.HashMap;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Database {
 
   private HashMap<String, Table> DB;
-  private ArrayList<String>TableList;
+  private ArrayList<String> TableList;
 
   private void init() {
     this.DB = new HashMap<String, Table>();// DB init
@@ -26,9 +27,9 @@ public class Database {
   public void interpret(String commands) {
     Interpreter interpreter = new Interpreter(commands);
 
-    ArrayList<String>objects = interpreter.getObjects();
+    ArrayList<String> objects = interpreter.getObjects();
 
-    switch(interpreter.getOrder()) {
+    switch (interpreter.getOrder()) {
       case "create":
         CreateTable creater = new CreateTable(objects);
         this.TableList.add(creater.getTableName());
@@ -39,7 +40,7 @@ public class Database {
         try {
           ListShow tableList = new ListShow(this.getTableNames());
           tableList.show();
-        }catch(Exception e){
+        } catch (Exception e) {
           e.printStackTrace();
         }
         break;
@@ -70,7 +71,8 @@ public class Database {
         String updateTargetValue1 = objects.get(2);
         String updateTargetColumnName2 = objects.get(3);
         String updateTargetValue2 = objects.get(4);
-        this.DB.get(updateTargetTable).update(updateTargetColumnName1, updateTargetValue1, updateTargetColumnName2, updateTargetValue2);
+        this.DB.get(updateTargetTable).update(updateTargetColumnName1, updateTargetValue1, updateTargetColumnName2,
+            updateTargetValue2);
         break;
       case "rename":
         String renameTargetTable = objects.get(0);
@@ -83,7 +85,8 @@ public class Database {
         String selectTargetColumn = objects.get(1);
         String selectTargetField = objects.get(2);
         String selectTargetTableName2 = objects.get(3);
-        ArrayList<HashMap<String, String>> selectMatchObjects = this.DB.get(selectTargetTableName1).select(selectTargetColumn, selectTargetField);
+        ArrayList<HashMap<String, String>> selectMatchObjects = this.DB.get(selectTargetTableName1)
+            .select(selectTargetColumn, selectTargetField);
         this.DB.get(selectTargetTableName2).insertHashMap(selectMatchObjects);
         break;
       case "proj":
@@ -98,22 +101,21 @@ public class Database {
         String joinTargetTableName2 = objects.get(2);
         String joinTargetColumnName2 = objects.get(3);
         String joinTargetTableName3 = objects.get(4);
-        
+
         Table table1 = this.DB.get(joinTargetTableName1);
         Table table2 = this.DB.get(joinTargetTableName2);
-
 
         this.DB.get(joinTargetTableName3);
         break;
       case "load":
         String loadPath = objects.get(0);
         // System.out.println(loadPath);
-        try(FileReader fr = new FileReader(loadPath); BufferedReader bufferedReader = new BufferedReader(fr);){
+        try (FileReader fr = new FileReader(loadPath); BufferedReader bufferedReader = new BufferedReader(fr);) {
           String line;
-          while((line = bufferedReader.readLine()) != null){
+          while ((line = bufferedReader.readLine()) != null) {
             this.interpret(line);
           }
-        } catch(IOException e){
+        } catch (IOException e) {
           System.out.println(e);
         }
         break;

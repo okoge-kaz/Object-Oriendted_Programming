@@ -9,7 +9,7 @@ class Main5 {
 
     Database DB = new Database();
 
-    while(scan.hasNextLine()) {
+    while (scan.hasNextLine()) {
       // WindowsのコマンドプロンプトならCTRL+Z、Linux/UnixならCTRL+Dで終端にできます
       String line = scan.nextLine();
       DB.interpret(line);
