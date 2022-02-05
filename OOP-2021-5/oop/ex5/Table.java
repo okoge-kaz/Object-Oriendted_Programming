@@ -127,7 +127,7 @@ public class Table {
 
   public void saveCommand(String path, String tableName) {
     Path targetPath = Paths.get(path);
-    System.out.println(path);
+    // System.out.println(path);
     try {
       Files.createFile(targetPath);
     } catch (FileAlreadyExistsException e) {

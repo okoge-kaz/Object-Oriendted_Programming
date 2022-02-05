@@ -26,4 +26,20 @@ public class Interpreter {
   public ArrayList<String> getObjects() {
     return this.objects;
   }
+
+  public static String getOrder(String line) {
+    String[] commands = line.split(" ");
+    ArrayList<String> commandList = new ArrayList<String>(Arrays.asList(commands));
+    return commandList.get(0);
+  }
+
+  public static ArrayList<String> getObjects(String line) {
+    String[] commands = line.split(" ");
+    ArrayList<String> commandList = new ArrayList<String>(Arrays.asList(commands));
+    ArrayList<String> objects = new ArrayList<String>();
+    for (int index = 1; index < commandList.size(); index++) {
+      objects.add(commandList.get(index));
+    }
+    return objects;
+  }
 }

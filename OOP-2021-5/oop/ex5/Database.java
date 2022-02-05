@@ -25,11 +25,11 @@ public class Database {
   }
 
   public void interpret(String commands) {
-    Interpreter interpreter = new Interpreter(commands);
+    // Interpreter interpreter = new Interpreter(commands);
 
-    ArrayList<String> objects = interpreter.getObjects();
+    ArrayList<String> objects = Interpreter.getObjects(commands);
 
-    switch (interpreter.getOrder()) {
+    switch (Interpreter.getOrder(commands)) {
       case "create":
         CreateTable creater = new CreateTable(objects);
         this.TableList.add(creater.getTableName());
@@ -126,7 +126,7 @@ public class Database {
         this.DB.get(savaTargetTableName).saveCommand(savePath, savaTargetTableName);
         break;
       default:
-        System.err.println("invalid command: " + interpreter.getOrder());
+        System.err.println("invalid command: " + Interpreter.getOrder(commands));
         System.exit(1);
     }
   }
