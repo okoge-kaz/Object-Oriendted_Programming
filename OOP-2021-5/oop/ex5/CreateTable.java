@@ -18,4 +18,12 @@ public class CreateTable {
   public ArrayList<String> getColumnNames() {
     return this.columnNames;
   }
+
+  public static String getTableName(ArrayList<String> data) {
+    return data.get(0);
+  }
+
+  public static ArrayList<String> getColumnNames(ArrayList<String> data) {
+    return new ArrayList<String>(data.subList(1, data.size()));
+  }
 }

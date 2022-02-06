@@ -4,7 +4,6 @@ import oop.ex5.Database;
 
 class Main5 {
   public static void main(String[] args) {
-    // このメソッドは好きに変更して構いません（このコメントは消してください）
     Scanner scan = new Scanner(System.in);
 
     Database DB = new Database();

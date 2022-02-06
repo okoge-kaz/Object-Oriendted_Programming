@@ -26,4 +26,24 @@ public class HashMapShow {
   public ArrayList<String> getSaveData() {
     return this.response;
   }
+
+  public static ArrayList<String> getSaveData(ArrayList<HashMap<String, String>> tableData,
+      ArrayList<String> columnNames) {
+    ArrayList<String> response = new ArrayList<>();
+
+    String createTargetString = "";
+    for (int index = 0; index < columnNames.size(); index++) {
+      createTargetString += columnNames.get(index) + " ";
+    }
+    response.add(createTargetString);
+
+    for (int index = 0; index < tableData.size(); index++) {
+      String tmpValueData = "";
+      for (int id = 0; id < columnNames.size(); id++) {
+        tmpValueData += tableData.get(index).get(columnNames.get(id)) + " ";
+      }
+      response.add(tmpValueData);
+    }
+    return response;
+  }
 }

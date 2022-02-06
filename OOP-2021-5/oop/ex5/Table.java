@@ -135,8 +135,8 @@ public class Table {
     } catch (IOException e) {
       e.printStackTrace();
     }
-    HashMapShow hashMapShow = new HashMapShow(this.tableData, this.columnNames);
-    ArrayList<String> Data = hashMapShow.getSaveData();
+    // HashMapShow hashMapShow = new HashMapShow(this.tableData, this.columnNames);
+    ArrayList<String> Data = HashMapShow.getSaveData(this.tableData, this.columnNames);
 
     try (BufferedWriter writer = Files.newBufferedWriter(targetPath)) {
       writer.write("create " + tableName + " " + Data.get(0));

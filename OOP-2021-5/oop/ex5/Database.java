@@ -38,8 +38,7 @@ public class Database {
       case "list":
         System.out.println("Table List");
         try {
-          ListShow tableList = new ListShow(this.getTableNames());
-          tableList.show();
+          ListShow.show(this.getTableNames());
         } catch (Exception e) {
           e.printStackTrace();
         }
